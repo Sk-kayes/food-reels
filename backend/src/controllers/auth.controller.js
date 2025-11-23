@@ -45,6 +45,12 @@ async function registerUser(req, res) {
 }
 
 async function loginUser(req, res) {
+    console.log('Environment check:', {
+        hasJWT: !!process.env.JWT_SECRET,
+        hasMongoDB: !!process.env.MONGODB_URI
+    });
+    console.log('Login request received:', req.body);
+    
     const { email, password } = req.body;
 
     const user = await userModel.findOne({ email });
@@ -85,6 +91,7 @@ async function loginUser(req, res) {
         },
     });
 }
+
 
 function logoutuser(req, res) {
     res.clearCookie("token");
