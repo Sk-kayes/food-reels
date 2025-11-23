@@ -9,7 +9,7 @@ const userRoutes = require("../src/routes/user.routes");
 
 const app = express();
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://food-reels-t369.vercel.app'],
+    origin: ['http://localhost:5173', 'https://food-reels-t369.vercel.app'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
