@@ -1,0 +1,40 @@
+# user
+{
+  "fullname": "Rahul Banerjee",
+  "email": "rahul.banerjee@example.com",
+  "password": "Rahul@123"
+}
+
+{
+  "fullname": "Ananya Roy",
+  "email": "ananya.roy@example.com",
+  "password": "Ananya#456"
+}
+
+# food-partner
+{
+  "name": "Tasty Bites",
+  "contactName": "Rahul Sharma",
+  "phone": "9876543210",
+  "address": "56 Lake View Road, Kolkata, West Bengal",
+  "email": "tastybites.partner@gmail.com",
+  "password": "Tasty@123"
+}
+
+{
+  "name": "Metro Fast Food",
+  "contactName": "Priya Verma",
+  "phone": "9123456780",
+  "address": "12 Park Street, Kolkata, West Bengal",
+  "email": "metrofastfood.partner@gmail.com",
+  "password": "Metro#456"
+}
+
+{
+  "name": "Royal Spice Kitchen",
+  "contactName": "Amit Sen",
+  "phone": "9001234567",
+  "address": "89 Sector 5, Salt Lake City, Kolkata",
+  "email": "royalspice.partner@gmail.com",
+  "password": "Royal$789"
+}

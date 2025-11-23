@@ -1,0 +1,83 @@
+import React, { useState } from "react";
+import Input from "../../components/Input";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config/api";
+
+export default function FoodPartnerLogin() {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const onChangeHandler = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const response = await axios.post(
+      `${API_BASE_URL}/api/auth/food-partner/login`,
+      formData,
+      { withCredentials: true }
+    );
+    console.log(response.data);
+    setFormData({
+      email: "",
+      password: "",
+    });
+    navigate("/create-food");
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 px-4 py-8">
+  <div className="w-full max-w-sm sm:max-w-md bg-gray-800 rounded-2xl shadow-2xl p-6 sm:p-8 space-y-6 ring-1 ring-gray-700">
+    <div className="text-center space-y-2">
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-100">Welcome back</h2>
+      <p className="text-sm sm:text-base text-gray-400">Access your dashboard</p>
+    </div>
+
+    <form className="space-y-5" onSubmit={submitHandler}>
+      <div className="space-y-4 sm:space-y-5">
+        <Input
+          id="email"
+          label="Email"
+          type="email"
+          placeholder="partner@example.com"
+          value={formData.email}
+          onChange={onChangeHandler}
+        />
+        <Input
+          id="password"
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          value={formData.password}
+          onChange={onChangeHandler}
+        />
+      </div>
+
+      <button
+        type="submit"
+        className="w-full py-3 sm:py-3.5 rounded-lg bg-green-600 text-white font-semibold text-base sm:text-lg hover:bg-green-700 active:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-colors"
+      >
+        Sign in
+      </button>
+
+      <p className="text-center text-sm sm:text-base text-gray-400">
+        Need an account?{" "}
+        <Link
+          className="text-green-400 hover:underline font-medium"
+          to="/food-partner/register"
+        >
+          Sign up
+        </Link>
+      </p>
+    </form>
+  </div>
+</div>
+  );
+}
