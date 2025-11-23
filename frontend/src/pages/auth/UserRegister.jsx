@@ -22,18 +22,24 @@ export default function UserRegister() {
   const submitHandler = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      `${API_BASE_URL}/api/auth/user/register`,
-      formData,
-      { withCredentials: true }
+        `${API_BASE_URL}/api/auth/user/register`,
+        formData,
+        { withCredentials: true }
     );
+    
+    // Store token in localStorage
+    localStorage.setItem('token', response.data.token);
+    
+    // Set axios default header
+    axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+    
     console.log(response.data);
     setFormData({
-      fullname: "",
-      email: "",
-      password: "",
+        email: "",
+        password: "",
     });
     navigate("/home");
-  };
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 px-4 py-6 sm:py-8">
