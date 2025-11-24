@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:3000' 
-    : 'https://food-reels-one.vercel.app';
+    : 'https://food-reels-backend-npse.onrender.com';
 
 // Set token from localStorage on app load
 const token = localStorage.getItem('token');
